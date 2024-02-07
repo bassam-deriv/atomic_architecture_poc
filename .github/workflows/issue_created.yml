@@ -24,7 +24,7 @@ jobs:
           curl -X POST -H 'Content-type: application/json' \
           --data '{
           "issue_creator": "${{ github.event.issue.user.login }}",
-          "issue_title": "$issue_title",
+          "issue_title": $issue_title,
           "issue_url": "${{ github.event.issue.html_url }}",
           "issue_labels": "Issue Labels"
           }' \
