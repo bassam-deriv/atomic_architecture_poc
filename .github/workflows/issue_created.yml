@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
 
       - name: Setup jq
         run: sudo apt-get install jq
@@ -22,7 +22,7 @@ jobs:
           SLACK_WEBHOOK_URL: "https://hooks.slack.com/triggers/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"
         run: |
           LABELS=$(echo '${{ toJson(github.event.issue.labels.*.name) }}' | jq -r 'join(", ")')
-          curl -X POST -H 'Authorization: Bearer xoxb-13075252481-6367737895764-TwByh2DBvKC7oLZxy0Q5g3ib' \
+          curl -X POST -H 'Authorization: Bearer xoxb-13075252481-6367737895764-qWAGbxFS165lEFzDOQLvZWrU' \
               -H 'Content-type: application/json' \
               --data "{
                 \"channel\": \"test_bassam\",
