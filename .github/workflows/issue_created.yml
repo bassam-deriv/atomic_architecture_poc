@@ -22,7 +22,6 @@ jobs:
           LABELS=$(echo '${{ toJson(github.event.issue.labels.*.name) }}' | jq -r 'join(", ")')
           curl -X POST -H 'Content-type: application/json' \
               --data "{
-                \"channel\": \"flutter_deriv_packages_issues\",
                 \"text\": \"Issue Created\",
                 \"blocks\": [
                   {
