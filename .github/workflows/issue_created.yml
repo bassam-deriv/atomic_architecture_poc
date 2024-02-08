@@ -41,6 +41,6 @@ jobs:
                   }
                 ]
               }" \
-              https://hooks.slack.com/services/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
+              https://hooks.slack.com/services/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
         shell: bash
 
