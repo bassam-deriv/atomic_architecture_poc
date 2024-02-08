@@ -8,7 +8,7 @@ env:
   issue_title: ${{ github.event.issue.title }}
 
 jobs:
-  send:
+  send-issue-created-slack-message:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,13 +18,11 @@ jobs:
         run: sudo apt-get install jq
 
       - name: Send Slack Notification on Github Issue Opened
-        env:
-          SLACK_WEBHOOK_URL: "https://hooks.slack.com/triggers/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"
         run: |
           LABELS=$(echo '${{ toJson(github.event.issue.labels.*.name) }}' | jq -r 'join(", ")')
           curl -X POST -H 'Content-type: application/json' \
               --data "{
-                \"channel\": \"test_bassam\",
+                \"channel\": \"flutter_deriv_packages_issues\",
                 \"text\": \"Issue Created\",
                 \"blocks\": [
                   {
@@ -45,3 +43,4 @@ jobs:
               }" \
               https://hooks.slack.com/services/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
         shell: bash
+
