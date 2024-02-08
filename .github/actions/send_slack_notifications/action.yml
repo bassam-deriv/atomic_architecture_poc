@@ -31,5 +31,5 @@ runs:
             }
           ]
         }' \
-          ${{ inputs.SLACK_WEBHOOK_URL }}
+          ${{ inputs.SLACK_WEBHOOK_ISSUES }}
       shell: bash
